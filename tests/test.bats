@@ -48,9 +48,8 @@ health_checks() {
   # assert_output --partial "test_header"
 
   # Or check if some command gives expected output:
-  DDEV_DEBUG=true run ddev launch
+  run ddev exec vtracer
   assert_success
-  assert_output --partial "FULLURL https://${PROJNAME}.ddev.site"
 }
 
 teardown() {

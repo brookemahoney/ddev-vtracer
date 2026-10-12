@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#ddev-generated
+## Description: Run vtracer commands inside the web container
+## Usage: vtracer [options] <input> <output>
+
+vtracer "$@"

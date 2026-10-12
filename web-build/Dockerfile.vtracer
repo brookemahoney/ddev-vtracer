@@ -1,0 +1,13 @@
+#ddev-generated
+
+ARG TARGETARCH
+RUN case "$TARGETARCH" in \
+      amd64) ASSET="vtracer-x86_64-unknown-linux-musl.tar.gz" ;; \
+      arm64) ASSET="vtracer-aarch64-unknown-linux-musl.tar.gz" ;; \
+      *) echo "Unsupported architecture: $TARGETARCH"; exit 1 ;; \
+    esac \
+    && curl -L -o /tmp/vtracer.tar.gz "https://github.com/visioncortex/vtracer/releases/download/1.0.0-alpha.4/${ASSET}" \
+    && tar -xzf /tmp/vtracer.tar.gz -C /usr/local/bin/ \
+    && chmod +x /usr/local/bin/vtracer \
+    && rm /tmp/vtracer.tar.gz
+

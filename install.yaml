@@ -1,6 +1,9 @@
 name: vtracer
 
-project_files:
-  - docker-compose.vtracer.yaml
-
 ddev_version_constraint: '>= v1.24.10'
+
+project_files:
+  - web-build/Dockerfile.vtracer
+  - commands/web/vtracer
+
+removal_actions: []
