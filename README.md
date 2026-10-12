@@ -7,7 +7,7 @@
 
 ## Overview
 
-This add-on integrates Vtracer into your [DDEV](https://ddev.com/) project.
+This add-on installs the [vtracer](https://github.com/visioncortex/vtracer) CLI binary into your [DDEV](https://ddev.com/) web container.
 
 ## Installation
 
@@ -20,28 +20,23 @@ After installation, make sure to commit the `.ddev` directory to version control
 
 ## Usage
 
-| Command | Description |
-| ------- | ----------- |
-| `ddev describe` | View service status and used ports for Vtracer |
-| `ddev logs -s vtracer` | Check Vtracer logs |
-
-## Advanced Customization
-
-To change the Docker image:
+Once installed and restarted, run `vtracer` inside the web container:
 
 ```bash
-ddev dotenv set .ddev/.env.vtracer --vtracer-docker-image="ddev/ddev-utilities:latest"
-ddev add-on get brookemahoney/ddev-vtracer
-ddev restart
+ddev exec vtracer --version
+ddev exec vtracer --help
 ```
 
-Make sure to commit the `.ddev/.env.vtracer` file to version control.
+## Architecture Support
 
-All customization options (use with caution):
+- **amd64** (`x86_64`)
+- **arm64** (`aarch64`)
 
-| Variable | Flag | Default |
-| -------- | ---- | ------- |
-| `VTRACER_DOCKER_IMAGE` | `--vtracer-docker-image` | `ddev/ddev-utilities:latest` |
+The add-on selects the correct pre-built musl binary based on Docker's `TARGETARCH` build argument.
+
+## Version
+
+Pinned to `1.0.0-alpha.4` (latest available release at creation time).
 
 ## Credits
 
