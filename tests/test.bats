@@ -48,7 +48,7 @@ health_checks() {
   # assert_output --partial "test_header"
 
   # Or check if some command gives expected output:
-  run ddev exec vtracer
+  run ddev vtracer --version
   assert_success
 }
 
