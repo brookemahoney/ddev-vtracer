@@ -23,8 +23,8 @@ After installation, make sure to commit the `.ddev` directory to version control
 Once installed and restarted, run `vtracer` inside the web container:
 
 ```bash
-ddev exec vtracer --version
-ddev exec vtracer --help
+ddev vtracer --version
+ddev vtracer --help
 ```
 
 ## Architecture Support
